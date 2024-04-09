@@ -4,7 +4,7 @@
 <div class="container">
 
     <div class="card p-3 mx-auto">
-        <h1 class="card-title text-center mb-3">Add Data Diri</h1>
+        <h1 class="card-title text-center mb-3">Edit Data Diri</h1>
         <form action="{{ route('data-diri.update',['data_diri' => $dataDiri->nim]) }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row mb-2">

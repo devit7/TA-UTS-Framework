@@ -21,10 +21,11 @@
                 Tambah Data
                 <i class="fa-solid fa-plus ml-1"></i>
             </a>
-            <div class="d-flex">
-                <input type="text" class="form-control me-2 me-md-0 mb-2 mb-md-0" placeholder="Search...">
-                <button class="btn btn-primary">Search</button>
-            </div>
+            <form class="d-flex" action="{{ route('data-diri.index') }}" method="get">
+                @csrf
+                <input type="text" class="form-control me-2 me-md-0 mb-2 mb-md-0" placeholder="Search..." name="search" value="{{ request('search') }}">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
         </div>
 
         {{-- list data --}}
@@ -86,9 +87,11 @@
                 <!-- Modal -->
                 <x-modal-delete nim="{{ $d->nim }}" nama="{{ $d->nama }}" />
             @endforeach
+            <div class="mt-5 border-top pt-3">
+                {{ $dataDiri->withQueryString()->links() }}
+            </div>
         </div>
-
-
+        
 
     </div>
 @endsection

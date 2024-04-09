@@ -12,11 +12,19 @@ class DataDiriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        //validasi search   
+        $dataDiri = DataDiri::where('nim', 'like', "%$request->search%")
+            ->orWhere('nama', 'like', "%$request->search%")
+            ->orWhere('alamat', 'like', "%$request->search%")
+            ->orWhere('email', 'like', "%$request->search%")
+            ->orWhere('no_hp', 'like', "%$request->search%")
+            ->orWhere('jurusan', 'like', "%$request->search%")
+            ->paginate(4);
         return view('list', [
-            'dataDiri' => DataDiri::all()
+            'dataDiri' => $dataDiri
         ]);
     }
 
@@ -25,6 +33,7 @@ class DataDiriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -40,7 +49,7 @@ class DataDiriController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        
+
         // Validasi data
         $request->validate([
             'nim' => 'required|unique:data_diris',
@@ -51,7 +60,7 @@ class DataDiriController extends Controller
             'jurusan' => 'required',
             'img_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk jenis file gambar
         ]);
-        
+
         $fileName = '';
         // Rename dan menyimpan file gambar
         if ($request->hasFile('img_path')) {
@@ -59,7 +68,7 @@ class DataDiriController extends Controller
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/img', $fileName);
         }
-        
+
         // Simpan data ke database
         DataDiri::create([
             'nim' => $request->nim,
