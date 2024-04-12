@@ -32,7 +32,7 @@
         <div class="row justify-content-between gap-4 flex-wrap mt-5">
             @foreach ($dataDiri as $d)
                 {{-- Card --}}
-                <div class="card text-center position-relative p-2" style="width: 16rem; ">
+                <div class="card text-center position-relative p-2" style="width: 16rem;">
                     {{-- Dropdown --}}
                     <div class="position-absolute top-0 start-0">
                         <div class="dropdown ">

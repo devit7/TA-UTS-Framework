@@ -8,9 +8,8 @@
         <p>Nama : Devit Erlingga Arafiudin</p>
         <p>Nim : 1201220030</p>
     </div>
-    <div class="mt-4 w-25 mx-auto card">
-        
-        <img src="http://img-host-by-dev.vercel.app/img/ayangKu/308119509_2292158377617166_8184178182546747437_n.jpg"
+    <div class="mt-4 mx-auto rounded-3 " style="width: 200px; height: 250px; overflow: hidden;">
+        <img src="http://img-host-by-dev.vercel.app/img/ayangKu/ZJ(edit).jpg"
             alt="" class="img-fluid">
     </div>
 </div>

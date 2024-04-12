@@ -32,7 +32,7 @@
                 <div class="row mb-2">
                     <div class="col-md-6">
                         <label for="exampleInputJurusan" class="form-label">Jurusan</label>
-                        <select class="form-select" id="exampleInputJurusan" aria-describedby="JurusanHelp" name="jurusan">
+                        <select class="form-select @error('no_hp') is-invalid  @enderror" id="exampleInputJurusan" aria-describedby="JurusanHelp" name="jurusan">
                             <option selected>Pilih Jurusan</option>
                             <option value="Teknik Informatika">Teknik Informatika</option>
                             <option value="Teknik Elektro">Teknik Elektro</option>
@@ -40,6 +40,11 @@
                             <option value="Teknik Mesin">Teknik Mesin</option>
                             <option value="Teknik Sipil">Teknik Sipil</option>
                         </select>
+                        @error('jurusan')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <label for="exampleInputAlamat" class="form-label">Alamat</label>
@@ -58,7 +63,7 @@
                         <label for="exampleInputNoHP" class="form-label">No HP</label>
                         <input type="text" class="form-control @error('no_hp') is-invalid  @enderror" id="exampleInputNoHP" aria-describedby="NoHPHelp"
                             name="no_hp" value="{{ old('no_hp') }}">
-                            @error('nim')
+                        @error('no_hp')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -66,33 +71,33 @@
                     </div>
                     <div class="col-md-6">
                         <label for="exampleInputEmail" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="EmailHelp"
+                        <input type="text" class="form-control @error('email') is-invalid  @enderror" id="exampleInputEmail" aria-describedby="EmailHelp"
                             name="email" value="{{ old('email') }}">
+                        @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="row mb-2">
                     <div class="col-md-6">
                         <label for="exampleInputImgPath" class="form-label">Image</label>
-                        <input type="file" class="form-control" id="exampleInputImgPath" aria-describedby="ImgPathHelp"
+                        <input type="file" class="form-control @error('no_hp') is-invalid  @enderror" id="exampleInputImgPath" aria-describedby="ImgPathHelp"
                             name="img_path" onchange="previewImg()">
                         <img alt="" class="img-fluid img-thumbnail mt-2 w-25" id="img-preview"
                             style="display: none">
+                        @error('img_path')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
 
-        {{-- Error --}}
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
 
     </div>
 
