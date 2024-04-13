@@ -40,9 +40,7 @@
                     </div>
                     <div>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus deleniti cupiditate nisi omnis
-                            eligendi, nihil quam tempora neque tenetur
-                            accusantium esse veniam sunt consequatur.
+                            {{ $dataDiri->bio }}
                         </p>
                     </div>
                     <div class="d-flex flex-column">

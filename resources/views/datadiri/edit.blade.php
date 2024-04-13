@@ -113,6 +113,16 @@
                                 style="display: none">
                         @endif
                     </div>
+                    <div class="col-md-6">
+                        <label for="exampleInputBio" class="form-label">Bio</label>
+                        <input type="text" class="form-control @error('bio') is-invalid  @enderror" id="exampleInputBio" aria-describedby="BioHelp"
+                            name="bio" value="{{ $dataDiri->bio}}">
+                        @error('bio')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

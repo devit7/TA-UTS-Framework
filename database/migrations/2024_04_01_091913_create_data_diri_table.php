@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('no_hp');
             $table->string('jurusan');
             $table->string('img_path');
+            $table->string('bio')->nullable();
             $table->timestamps();
         });
     }

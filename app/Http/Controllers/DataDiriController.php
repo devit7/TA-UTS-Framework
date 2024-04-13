@@ -56,9 +56,10 @@ class DataDiriController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'email' => 'required',
-            'no_hp' => 'required',
+            'no_hp' => 'required|numeric',
             'jurusan' => 'required',
             'img_path' => 'required|image|mimes:jpeg,png,jpg|max:2048', // Validasi untuk jenis file gambar
+            'bio' => 'required'
         ]);
 
         $fileName = '';
@@ -78,6 +79,7 @@ class DataDiriController extends Controller
             'no_hp' => $request->no_hp,
             'jurusan' => $request->jurusan,
             'img_path' => $fileName,
+            'bio' => $request->bio
         ]);
 
         // Redirect ke halaman list
@@ -132,7 +134,8 @@ class DataDiriController extends Controller
             'alamat' => 'required',
             'email' => 'required',
             'no_hp' => 'required',
-            'jurusan' => 'required'
+            'jurusan' => 'required',
+            'bio' => 'required',
         ]);
 
         $fileName = $dataDiri->img_path;
@@ -158,6 +161,7 @@ class DataDiriController extends Controller
                 'no_hp' => $request->no_hp,
                 'jurusan' => $request->jurusan,
                 'img_path' => $fileName,
+                'bio' => $request->bio
             ]);
 
         // Redirect ke halaman list
