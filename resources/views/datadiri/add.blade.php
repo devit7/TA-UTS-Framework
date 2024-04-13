@@ -39,6 +39,7 @@
                             <option value="Teknik Industri">Teknik Industri</option>
                             <option value="Teknik Mesin">Teknik Mesin</option>
                             <option value="Teknik Sipil">Teknik Sipil</option>
+                            <option value="Rekaya Perangkat Lunak">Rekaya Perangkat Lunak</option>
                         </select>
                         @error('jurusan')
                             <div class="invalid-feedback">

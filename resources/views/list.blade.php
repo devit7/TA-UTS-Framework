@@ -29,7 +29,7 @@
         </div>
 
         {{-- list data --}}
-        <div class="row justify-content-between gap-4 flex-wrap mt-5">
+        <div class="row justify-content-center gap-5 flex-wrap mt-5 ">
             @foreach ($dataDiri as $d)
                 {{-- Card --}}
                 <div class="card text-center position-relative p-2" style="width: 16rem;">

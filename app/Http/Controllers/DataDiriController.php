@@ -58,7 +58,7 @@ class DataDiriController extends Controller
             'email' => 'required',
             'no_hp' => 'required',
             'jurusan' => 'required',
-            'img_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk jenis file gambar
+            'img_path' => 'required|image|mimes:jpeg,png,jpg|max:2048', // Validasi untuk jenis file gambar
         ]);
 
         $fileName = '';
@@ -132,17 +132,22 @@ class DataDiriController extends Controller
             'alamat' => 'required',
             'email' => 'required',
             'no_hp' => 'required',
-            'jurusan' => 'required',
-            'img_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk jenis file gambar
+            'jurusan' => 'required'
         ]);
 
-        $fileName = '';
-        // Rename dan menyimpan file gambar
+        $fileName = $dataDiri->img_path;
+        // Jika ada perubahan pada gambar
         if ($request->hasFile('img_path')) {
+            // Validasi untuk jenis file gambar
+            $request->validate([
+                'img_path' => 'image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+
+            // Rename dan menyimpan file gambar
             $file = $request->file('img_path');
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/img', $fileName);
-        }
+        } 
 
         DataDiri::where('nim', $dataDiri->nim)
             ->update([
@@ -154,6 +159,9 @@ class DataDiriController extends Controller
                 'jurusan' => $request->jurusan,
                 'img_path' => $fileName,
             ]);
+
+        // Redirect ke halaman list
+        return redirect('/data-diri')->with('status', "Data $request->nama berhasil diupdate");
     }
 
     /**
