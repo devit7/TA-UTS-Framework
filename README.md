@@ -1,66 +1,46 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CRUD Biodata dengan Laravel 9, Bootstrap 5, dan MySQL
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Ini adalah proyek CRUD Biodata yang dibangun menggunakan Laravel 9, Bootstrap 5, dan MySQL. Proyek ini memiliki beberapa fitur utama:
 
-## About Laravel
+## List Data
+![List Data](http://img-host-by-dev.vercel.app/img/tugasutsFramework/list_data.png)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Fitur ini memungkinkan pengguna untuk melihat daftar data biodata yang telah tersimpan.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Add Data
+![Add Data](http://img-host-by-dev.vercel.app/img/tugasutsFramework/add_data.png)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Fitur ini memungkinkan pengguna untuk menambahkan data biodata baru ke dalam sistem.
 
-## Learning Laravel
+## Error Feedback pada Input Add/Edit
+![Error Handling](http://img-host-by-dev.vercel.app/img/tugasutsFramework/eror_handling.png)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Fitur ini memberikan umpan balik error kepada pengguna jika terjadi kesalahan pada proses penambahan atau pengeditan data biodata.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Edit
+![Edit Data](http://img-host-by-dev.vercel.app/img/tugasutsFramework/edit_data.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Fitur ini memungkinkan pengguna untuk mengedit data biodata yang sudah ada di dalam sistem.
 
-## Laravel Sponsors
+## Detail Data
+![Detail Data](http://img-host-by-dev.vercel.app/img/tugasutsFramework/detail_data.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Fitur ini memungkinkan pengguna untuk melihat detail lengkap dari seorang individu dalam data biodata.
 
-### Premium Partners
+## Modal Delete
+![Delete Modal](http://img-host-by-dev.vercel.app/img/tugasutsFramework/delete_modal.png)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Fitur ini memungkinkan pengguna untuk menghapus data biodata dengan menggunakan modal konfirmasi.
 
-## Contributing
+## Instalasi
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Pastikan Anda memiliki PHP, Composer, dan MySQL terinstal di komputer Anda.
+2. Clone repositori ini ke dalam direktori lokal Anda.
+3. Buka terminal dan arahkan ke direktori proyek.
+4. Jalankan perintah `composer install` untuk menginstal semua dependensi.
+5. Salin file `.env.example` menjadi `.env` dan sesuaikan pengaturan database Anda.
+6. Jalankan perintah `php artisan key:generate` untuk menghasilkan kunci aplikasi.
+7. Jalankan perintah `php artisan migrate` untuk menjalankan migrasi database.
+8. Jalankan perintah `php artisan serve` untuk menjalankan server pengembangan.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Selamat menggunakan proyek CRUD Biodata dengan Laravel 9, Bootstrap 5, dan MySQL! Jika Anda memiliki pertanyaan atau masalah, jangan ragu untuk menghubungi saya.
