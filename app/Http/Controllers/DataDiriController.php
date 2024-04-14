@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\DataDiri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Stringable;
 
 class DataDiriController extends Controller
 {
@@ -137,19 +139,23 @@ class DataDiriController extends Controller
             'jurusan' => 'required',
             'bio' => 'required',
         ]);
+        $NamaFileLama = $dataDiri->img_path;
 
         $fileName = $dataDiri->img_path;
-        // Jika ada perubahan pada gambar
+        // Jika ada perubahan pada img_path
         if ($request->hasFile('img_path')) {
-            // Validasi untuk jenis file gambar
+            // Validasi untuk jenis file img_path
             $request->validate([
                 'img_path' => 'image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
-            // Rename dan menyimpan file gambar
+            // Rename dan menyimpan file img_path
             $file = $request->file('img_path');
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/img', $fileName);
+
+            //delete file gambar lama
+            Storage::delete('public/img/' . $NamaFileLama);
         } 
 
         DataDiri::where('nim', $dataDiri->nim)
@@ -176,10 +182,8 @@ class DataDiriController extends Controller
      */
     public function destroy(DataDiri $dataDiri)
     {
+        Storage::delete('public/img/' . $dataDiri->img_path);
         $dataDiri->delete();
-
-        // delete file
-        unlink(storage_path('app/public/img/' . $dataDiri->img_path));
 
         return redirect('/data-diri')->with('status', 'Data berhasil dihapus');
     }

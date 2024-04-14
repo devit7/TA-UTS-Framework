@@ -9,7 +9,7 @@
         <p>Nim : 1201220030</p>
     </div>
     <div class="mt-4 mx-auto rounded-3 " style="width: 200px; height: 250px; overflow: hidden;">
-        <img src="#"
+        <img src="http://img-host-by-dev.vercel.app/img/ayangKu/ZJ(edit).jpg"
             alt="" class="img-fluid">
     </div>
 </div>
