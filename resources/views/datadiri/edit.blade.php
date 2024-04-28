@@ -1,8 +1,6 @@
 @extends('layouts.main')
-
 @section('content')
     <div class="container">
-
         <div class="card p-3 mx-auto">
             <h1 class="card-title text-center mb-3">Edit Data Diri</h1>
             <form action="{{ route('data-diri.update', ['data_diri' => $dataDiri->nim]) }}" method="POST"
@@ -44,10 +42,10 @@
                                 Teknik Elektro</option>
                             <option value="Teknik Industri" {{ $dataDiri->jurusan == 'Teknik Industri' ? 'selected' : '' }}>
                                 Teknik Industri</option>
-                            <option value="Teknik Mesin" {{ $dataDiri->jurusan == 'Teknik Mesin' ? 'selected' : '' }}>Teknik
-                                Mesin</option>
-                            <option value="Teknik Sipil" {{ $dataDiri->jurusan == 'Teknik Sipil' ? 'selected' : '' }}>Teknik
-                                Sipil</option>
+                            <option value="Teknik Mesin" {{ $dataDiri->jurusan == 'Teknik Mesin' ? 'selected' : '' }}>
+                                Teknik Mesin</option>
+                            <option value="Teknik Sipil" {{ $dataDiri->jurusan == 'Teknik Sipil' ? 'selected' : '' }}>
+                                Teknik Sipil</option>
                             <option value="Rekaya Perangkat Lunak"
                                 {{ $dataDiri->jurusan == 'Rekaya Perangkat Lunak' ? 'selected' : '' }}>Rekaya Perangkat
                                 Lunak</option>
@@ -115,7 +113,8 @@
                     </div>
                     <div class="col-md-6">
                         <label for="exampleInputBio" class="form-label">Bio</label>
-                        <input type="text" class="form-control @error('bio') is-invalid  @enderror" id="exampleInputBio" aria-describedby="BioHelp"
+                        <input type="text" class="form-control @error('bio') is-invalid  @enderror" id="exampleInputBio" 
+                        aria-describedby="BioHelp"
                             name="bio" value="{{ $dataDiri->bio}}">
                         @error('bio')
                             <div class="invalid-feedback">
@@ -124,13 +123,11 @@
                         @enderror
                     </div>
                 </div>
+                <a href="{{ route('data-diri.index') }}" class="btn btn-secondary">Back</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-
-
     </div>
-
     <script>
         function previewImg() {
             const img_path = document.querySelector('#exampleInputImgPath');

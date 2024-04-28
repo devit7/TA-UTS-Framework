@@ -9,11 +9,13 @@
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Apakah anda yakin ingin menghapus data {{ $nama }} ini?
+                Apakah anda yakin ingin menghapus data <i class="text-danger">{{ $nama }}</i> ini?
             </div>
-            <form class="modal-footer" action="{{ route('data-diri.destroy',['data_diri' => $nim]) }}">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+            <form class="modal-footer" action="{{ route('data-diri.destroy',['data_diri' => $nim]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
             </form>
         </div>
     </div>

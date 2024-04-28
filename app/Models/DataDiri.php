@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class DataDiri extends Model
 {
     use HasFactory;
-
+// membuat id menjadi tidak bisa diisi secara manual
     protected $guarded = [
         'id'
     ];
-
-    // binding route model key to nim
+    // merubah route key dari id ke nim
     public function getRouteKeyName()
     {
         return 'nim';

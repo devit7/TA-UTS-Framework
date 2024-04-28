@@ -1,21 +1,21 @@
 @extends('layouts.main')
-
 @section('content')
+    {{-- untuk melakukan hover zoom --}}
     <style>
         #card-img:hover {
             transform: scale(1.1);
         }
     </style>
     <div class="container px-5">
-
         {{-- Aller --}}
         @if (session('status'))
+            {{-- jika ada session status --}}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>{{ session('status') }}</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        {{-- search + tambah data --}}
+        {{-- input search + button tambah data --}}
         <div class="d-flex flex-column flex-md-row justify-content-between mt-5 border-bottom pb-3">
             <a href="{{ route('data-diri.create') }}" class="btn btn-primary mb-2 mb-md-0">
                 Tambah Data
@@ -23,14 +23,15 @@
             </a>
             <form class="d-flex" action="{{ route('data-diri.index') }}" method="get">
                 @csrf
-                <input type="text" class="form-control me-2 me-md-0 mb-2 mb-md-0" placeholder="Search..." name="search" value="{{ request('search') }}">
+                <input type="text" class="form-control me-2 me-md-0 mb-2 mb-md-0" placeholder="Search..." name="search"
+                    value="{{ request('search') }}">
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
 
         {{-- list data --}}
         <div class="row justify-content-center gap-5 flex-wrap mt-5 ">
-            @foreach ($dataDiri as $d)
+            @forelse($dataDiri as $d)
                 {{-- Card --}}
                 <div class="card text-center position-relative p-2" style="width: 16rem;">
                     {{-- Dropdown --}}
@@ -84,14 +85,17 @@
                         </div>
                     </a>
                 </div>
-                <!-- Modal -->
+                <!-- Compoents Modal -->
                 <x-modal-delete nim="{{ $d->nim }}" nama="{{ $d->nama }}" />
-            @endforeach
+            @empty
+                <div class="text-center mt-5">
+                    <h1 class="fw-bold">Data Tidak Ditemukan</h1>
+                </div>
+            @endforelse
             <div class="mt-5 border-top pt-3">
-                {{ $dataDiri->withQueryString()->links() }}
+                {{--  Pagination dengan metode bootsrap yang sudah di sediakan --}}
+                {{ $dataDiri->withQueryString()->links() }} {{--  menampilkan pagination --}}
             </div>
         </div>
-        
-
     </div>
 @endsection
